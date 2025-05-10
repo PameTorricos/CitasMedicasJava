@@ -14,22 +14,4 @@ public class CitaMedicaDaoMemoria implements CitaMedicaDao {
     public List<CitaMedica> listar(){
         return citas;
     }
-    /*public List<CitaMedica>buscarPaciente(String nombrePaciente){
-        List<CitaMedica> resultado = new ArrayList<>();
-        for (CitaMedica c: citas){
-            if(c.getNombrePaciente().equalsIgnoreCase(nombrePaciente)){
-                resultado.add(c);
-            }
-        }
-        return resultado;
-    }
-    public List<CitaMedica> buscarDoctor(String nombreDoctor){
-        List<CitaMedica> resultado = new ArrayList<>();
-        for (CitaMedica c: citas){
-            if(c.getNombreDoctor().equalsIgnoreCase(nombreDoctor)){
-                resultado.add(c);
-            }
-        }
-        return resultado;
-    }*/
 }

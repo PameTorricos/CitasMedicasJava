@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
-
+// Patrón de comportamiento - Strategy
 public class BusquedaPaciente implements BusquedaCitas{
     private String nombrePaciente;
 

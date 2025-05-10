@@ -6,10 +6,29 @@ public class Main {
         CitaMedicaDao medicaDao = new CitaMedicaDaoMemoria();
         Buscador buscador = new Buscador();
 
+        CitaMedica cita1 = new CitaMedicaBuilder()
+                .setnombrePaciente("Ana Lopez")
+                .setNombreDoctor("Dra. Campos")
+                .setEspecialidad("Ginecología")
+                .setFecha("15/05/2025")
+                .setHorario("14:00")
+                .setMotivoConsulta("Chequeo de rutina")
+                .build();
+        medicaDao.guardar(cita1);
+
+        CitaMedica cita2 = new CitaMedicaBuilder()
+                .setnombrePaciente("Carlos Choque")
+                .setNombreDoctor("Dr. Perez")
+                .setEspecialidad("Cardiología")
+                .setFecha("16/05/2025")
+                .setHorario("10:30")
+                .build();
+        medicaDao.guardar(cita2);
+
         Map<String, List<String>> especialidades = new HashMap<>();
         especialidades.put("1", Arrays.asList("Cardiología", "Dra. Olivares", "Dr. Perez"));
         especialidades.put("2", Arrays.asList("Ginecología", "Dra. Mamani", "Dra. Campos"));
-        especialidades.put("3", Arrays.asList("Neurología", "Dr. Sheperd", "Dr. Koracick"));
+        especialidades.put("3", Arrays.asList("Neurología", "Dr. Shepperd", "Dr. Koracick"));
 
         boolean salir = false;
 
@@ -65,12 +84,29 @@ public class Main {
                     String fecha = "2025-06-17";
                     String horario = "14:00";
 
+                    System.out.println("Motivo de consulta: ");
+                    System.out.println("1. Indicar motivo de consulta");
+                    System.out.println("2. No indicar motivo de consulta");
+                    System.out.println("Elija una opción");
+                    String indicarMotivo = entrada.nextLine();
+                    String motivo;
+                    if (indicarMotivo.equals("1")){
+                        System.out.println("Ingrese motivo");
+                        motivo = entrada.nextLine();
+                    } else if (indicarMotivo.equals("2")) {
+                        motivo = null;
+                    }else {
+                        System.out.println("Opción inválida");
+                        break;
+                    }
+
                     CitaMedica cita = new CitaMedicaBuilder()
                             .setnombrePaciente(nombrePaciente)
                             .setNombreDoctor(doctorElegido)
                             .setEspecialidad(especialidad)
                             .setFecha(fecha)
                             .setHorario(horario)
+                            .setMotivoConsulta(motivo)
                             .build();
 
                     medicaDao.guardar(cita);

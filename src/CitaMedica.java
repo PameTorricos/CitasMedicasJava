@@ -5,6 +5,7 @@ public class CitaMedica{
     private String especialidad;
     private String fecha;
     private String horario;
+    private String motivoConsulta; //campo opcional
 
     //Patron creacional -builder
 
@@ -27,6 +28,9 @@ public class CitaMedica{
     void setHorario (String horario){
         this.horario = horario;
     }
+    void setMotivoConsulta(String motivoConsulta){
+        this.motivoConsulta = motivoConsulta;
+    }
 
     //getters
     public String getNombrePaciente(){
@@ -44,6 +48,9 @@ public class CitaMedica{
     public String getHorario(){
         return horario;
     }
+    public String getMotivoConsulta(){
+        return motivoConsulta;
+    }
 
     public void mostrar(){
         System.out.println("Paciente: "+nombrePaciente);
@@ -51,6 +58,11 @@ public class CitaMedica{
         System.out.println("Especialidad: "+especialidad);
         System.out.println("Fecha: "+fecha);
         System.out.println("Horario: " +horario);
+        if(motivoConsulta!=null){
+            System.out.println("Motivo de la consulta: "+motivoConsulta);
+        }else{
+            System.out.println("Motivo de la consulta: ----------- ");
+        }
     }
 
 

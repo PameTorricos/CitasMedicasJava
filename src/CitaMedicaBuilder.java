@@ -4,6 +4,7 @@ public class CitaMedicaBuilder {
     private String especialidad;
     private String fecha;
     private String horario;
+    private String motivoConsulta;
 
     public CitaMedicaBuilder setnombrePaciente(String nombrePaciente){
         this.nombrePaciente = nombrePaciente;
@@ -25,6 +26,10 @@ public class CitaMedicaBuilder {
         this.horario = horario;
         return this;
     }
+    public CitaMedicaBuilder setMotivoConsulta(String motivoConsulta){
+        this.motivoConsulta = motivoConsulta;
+        return this;
+    }
     //patron creacional - builder
     public CitaMedica build(){
         CitaMedica cita = new CitaMedica();
@@ -33,6 +38,7 @@ public class CitaMedicaBuilder {
         cita.setEspecialidad(especialidad);
         cita.setFecha(fecha);
         cita.setHorario(horario);
+        cita.setMotivoConsulta(motivoConsulta);
         return cita;
     }
 }
